@@ -7,20 +7,22 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.darren.borutoapp.R
 import com.example.darren.borutoapp.navigation.Screen
-import com.example.darren.borutoapp.ui.theme.Purple500
-import com.example.darren.borutoapp.ui.theme.Purple700
+import com.example.darren.borutoapp.ui.theme.*
 import kotlinx.coroutines.delay
 
 @Composable
@@ -61,22 +63,28 @@ fun Splash(degrees: Float) {
             contentAlignment = Alignment.Center
         ) {
             Image(
-                modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.ic_logo),
-                contentDescription = ""
+                modifier = Modifier
+                    .rotate(degrees = degrees)
+                    .size(200.dp),
+                painter = painterResource(id = R.drawable.ic_ball),
+                contentDescription = "",
+                colorFilter = ColorFilter.tint(color = Color.White)
             )
         }
     } else {
         Box(
             modifier = androidx.compose.ui.Modifier
-                .background(Brush.verticalGradient(listOf(Purple700, Purple500)))
+                .background(Brush.verticalGradient(listOf(Red700, Red200)))
                 .fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             Image(
-                modifier = Modifier.rotate(degrees = degrees),
-                painter = painterResource(id = R.drawable.ic_logo),
-                contentDescription = ""
+                modifier = Modifier
+                    .rotate(degrees = degrees)
+                    .size(200.dp),
+                painter = painterResource(id = R.drawable.ic_ball),
+                contentDescription = "",
+                colorFilter = ColorFilter.tint(color = Color.White)
             )
         }
     }
